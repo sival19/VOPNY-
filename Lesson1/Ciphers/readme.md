@@ -35,7 +35,7 @@ efter sekvensen …., 'y', 'Y', 'z', 'Z' følger 'a', 'A', 'b', 'B', ….
 Derudover erklæres metoder til kryptering og dekryptering af en String.
 - `CipherDriver.java`: Driverklasse til test uden brugerflade (opgave a, b og c)
 
-## Task 2a - AbstractCipher
+### Task 2a - AbstractCipher
 Opret en __abstrakt klasse__, som implementerer `CipherInterface`. Klassen skal _ikke_ implementere de to metoder fra interfacet, men indeholde en metode, som de konkrete klasser kan benytte til at finde hvilket index et givet bogstav ligger på i ALPHABET. Metoden skal have signaturen 
 ```
 <synlighed> int findCharIndex(char ch){…}
@@ -43,13 +43,13 @@ Opret en __abstrakt klasse__, som implementerer `CipherInterface`. Klassen skal 
 , hvor `<synlighed>` skal sikre at metoden kun kan kaldes fra sub-klasser til `AbstractCipher`.
 Metoden skal returnere det `index`, som `ch` findes på i arrayet, eller `-1`, hvis `ch` ikke er et bogstav i alfabetet.
 
-## Task 2b - AtbashCipher
+### Task 2b - AtbashCipher
 Denne klasse skal arve `AbstractCipher`. Implementer de to metoder fra interfacet, så:
 - `public String encrypt(String message)` returnerer `message` krypteret, således at alle
 _alfabetiske_ tegn i `message` er skiftet ud (’`a`’ -> ’`Z`’, ’`A`’-> ’`z`’, ’`b`’ -> ’`Y`’, osv.). _Ikkealfabetiske_ tegn, skal ikke ændres.
 - `public String decrypt(String encrypted)` genskaber den originale message. _Hint: det kan gøres utroligt simpelt med Atbash algoritmen._
 
-## Task 2c - CaesarCipher
+### Task 2c - CaesarCipher
 Skal også arve AbstractCipher.
 - Klassen skal have en heltals-variabel (`int rotFactor`), indeholdende det antal pladser i
  `ALPHABETH`, som et givet bogstav skal roteres. Variablen skal tildeles sin værdi via en parameter til en constructor og det skal sikres, at `rotFactor` ikke bliver negativ og ikke er større end antallet af tegn i alfabetet.
@@ -69,7 +69,7 @@ Her har vi en Meddelelse, som er hemmelig!
 BUILD SUCCESSFUL (total time: 0 seconds)
 ```
 
-## Task 2d - Integrering i javaFX brugerfladen
+### Task 2d - Integrering i javaFX brugerfladen
 ![Class Diagram](assets/ui.png)
 
 Definer en brugerflade, som indeholder:

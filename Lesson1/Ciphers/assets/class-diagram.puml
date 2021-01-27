@@ -2,7 +2,6 @@
 skinparam backgroundcolor transparent
 skinparam classAttributeIconSize 0
 
-
 interface CipherInterface {
     ALPHABET : char[] = {'a', 'A', 'b', 'B', 'c', 'C', 'd', 'D', 'e', 'E', 'f', 'F'
             , 'g', 'G', 'h', 'H', 'i', 'I', 'j', 'J', 'k', 'K', 'l', 'L', 'm', 'M'
