@@ -14,7 +14,9 @@ starte med at opsætte projektet, som beskrevet i Opgave 1.
 **Formål**: At oprette eksamensprojektet som en JavaFX applikation, navngivet korrekt og forberedt til de øvrige eksamensopgaver.
 
 1. Projektet er sat op på forhånd til JavaFX via Maven. Afhængigheder skal dog indlæses - dette kan gøres fra _Maven_ fanen i højre side af IntelliJ og dernæst ved at klikke på reload ikonet.
+
 ![alt text](assets/maven-reload.png)
+
 2. Start SceneBuilderen ved at dobbeltklikke på den dannede FXML-fil (_src/resources/primary.fxml_).
 
 ### Task 2 - Implementering af hierarki til oldtids-kryptering af tekster
@@ -26,6 +28,7 @@ starte med at opsætte projektet, som beskrevet i Opgave 1.
  - `CaesarCipher`: Blev opfundet under Julius Cæsar (100 f.kr – 44 f.Kr.). Fremgangsmåden er at alle bogstaver i den originale meddelelse udskiftes med et bogstav, som ligger et givet antal pladser (nøglen) længere nede i alfabetet modulus alfabetets længde.
 
 **Klassediagam**:
+
 ![Class Diagram](assets/Ciphers.png )
 
 **Udleveret kode**:
