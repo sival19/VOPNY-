@@ -13,5 +13,7 @@
         <module>Lesson1/Ciphers/Solution</module>
         <module>Lesson1/Polymorphism/Exercise</module>
         <module>Lesson1/Polymorphism/Solution</module>
+        <module>Lesson2Preparation/CamelCase/Exercise</module>
+        <module>Lesson2Preparation/DanishIslands/Exercise</module>
     </modules>
 </project>
