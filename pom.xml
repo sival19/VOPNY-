@@ -22,5 +22,6 @@
         <module>Lesson3Preparation/Compare/Exercise</module>
         <module>Lesson3Preparation/Compare/Solution</module>
         <module>Lesson3/Mountains/Exercise</module>
+        <module>Lesson3/Mountains/Solution</module>
     </modules>
 </project>
