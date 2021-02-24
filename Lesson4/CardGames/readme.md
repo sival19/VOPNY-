@@ -1,5 +1,7 @@
 # Card Games
 
+**OBS: Start med LicensePlates Exercise**
+
 ## Introduction
 
 I denne opgave skal der implementeres et spil kort. Programmet består af tre klasser:

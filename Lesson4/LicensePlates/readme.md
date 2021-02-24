@@ -2,8 +2,6 @@
 
 ## Introduction
 
-**OBS: Start med LicensePlates Exercise**
-
 Historie: I perioden fra 1958 til 1966-68 (hvor registreringen af motorkøretøjer gradvis overgik til Centralregisteret
 for Motorkøretøjer), kunne man på en nummerplades 2 kendingsbogstaver se hvilken politikreds et køretøj var
 indregistreret i, og på det 5-cifrede nummer hvilken anvendelse køretøjet havde.
