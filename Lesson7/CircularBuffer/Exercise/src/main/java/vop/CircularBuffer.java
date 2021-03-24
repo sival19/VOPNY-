@@ -4,22 +4,55 @@ import java.util.Arrays;
 
 public class CircularBuffer {
 
-    private Integer[] buffer;
-    private int size;
     int putIndex = 0;
     int getIndex = 0;
+    boolean valueSet = false;
+    private final Integer[] buffer;
+    private final int size;
+
 
     public CircularBuffer(int size) {
         buffer = new Integer[size];
         this.size = size;
+
     }
 
     synchronized int get() {
-        throw new UnsupportedOperationException("Implementer get() metoden");
+        while (!valueSet) {
+            try {
+                wait();
+            } catch (InterruptedException e) {
+                System.out.println("GOTHA");
+            }
+
+        }
+        int value;
+        value = buffer[getIndex];
+        buffer[getIndex] = null;
+        System.out.println("get: " + value);
+        valueSet = false;
+        getIndex = (getIndex + 1) % size;
+
+        notifyAll();
+        return value;
+
     }
 
     synchronized void put(int n) {
-        throw new UnsupportedOperationException("Implementer put() metoden");
+        while (valueSet) {
+            try {
+                wait();
+            } catch (InterruptedException e) {
+                System.out.println("INTERUPPPPPPTEEEEED");
+            }
+
+        }
+        this.buffer[putIndex % size] = n;
+        System.out.println("put: " + buffer[putIndex % size] + "\n");
+        putIndex++;
+        valueSet = true;
+        notifyAll();
+
     }
 
 
