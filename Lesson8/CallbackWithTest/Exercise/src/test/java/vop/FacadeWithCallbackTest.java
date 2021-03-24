@@ -5,11 +5,11 @@
  */
 package vop;
 
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.*;
+
+import java.io.File;
+import java.net.URISyntaxException;
+import static org.junit.Assert.*;
 
 /**
  *
@@ -35,7 +35,26 @@ public class FacadeWithCallbackTest {
     }
 
     @Before
-    public void setUp() {
+    public void setUp() throws URISyntaxException {
+        soutCallBack = new CallBackInterface() {
+            @Override
+            public void updateMessage(String message) {
+                System.out.println(message);
+            }
+
+            @Override
+            public void updateImages(File i1, File i2) {
+                System.out.println("Pics: " + i1.getName() + " " + i2.getName());
+
+            }
+        };
+        facade = new FacadeWithCallback(soutCallBack);
+        facade.start();
+        dice = facade.getDice();
+
+
+
+
 //        TODO
 //        Instantiate your CallBackInterface
 //        Instantiate and start your Facade Thread
@@ -43,6 +62,7 @@ public class FacadeWithCallbackTest {
 
     @After
     public void tearDown() {
+        facade.interrupt();
 //        TODO
 //        Interrupt your facade Thread
     }
@@ -53,6 +73,13 @@ public class FacadeWithCallbackTest {
 
     @Test
     public void testRun() {
+        try {
+            facade.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        assertTrue(dice.equalsMax());
 //        TODO
 //        Test the run() method
 //        Assert if the dice.getDie1() and dice.getDie2() are equal to integer 6
