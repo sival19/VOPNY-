@@ -30,7 +30,7 @@ public class FindFilesRecursive {
         if (file.isDirectory()){
             File[] listOfFiles = file.listFiles();
             noDirs ++;
-//            System.out.println("the path of: "+ file + " is: " + file.getAbsolutePath());
+            System.out.println("the path of: "+ file + " is: " + file.getAbsolutePath());
             for (int i = 0; i < listOfFiles.length; i++) {
                 findFiles(listOfFiles[i]);
                 if (listOfFiles[i] != null){
