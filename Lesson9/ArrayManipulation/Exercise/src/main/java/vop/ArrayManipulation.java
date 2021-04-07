@@ -42,7 +42,7 @@ public class ArrayManipulation {
 
 
         }
-        System.out.println(Arrays.toString(temp));
+        System.out.println("Odd to left, even to right: " + Arrays.toString(temp));
         sort(temp,odd);
         return temp;
 
