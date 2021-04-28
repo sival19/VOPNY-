@@ -8,6 +8,7 @@ public class MatchingBrackets {
 
 
     public boolean ckeckBrackets(String expression) {
+
         Stack<Character> stack = new Stack<Character>();
         char c;
         for(int i=0; i< expression.length(); i++){
@@ -43,6 +44,7 @@ public class MatchingBrackets {
         }
         return stack.empty();
 //        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
     }
 
     /**
