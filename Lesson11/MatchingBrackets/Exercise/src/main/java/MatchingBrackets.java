@@ -7,46 +7,6 @@ import java.util.Stack;
 public class MatchingBrackets {
 
 
-    public boolean ckeckBrackets(String expression) {
-
-        Stack<Character> stack = new Stack<Character>();
-        char c;
-        for(int i=0; i< expression.length(); i++){
-            c= expression.charAt(i);
-            if(c== '(')
-                stack.push(c);
-            else if (c=='{')
-                stack.push(c);
-            else if (c=='[')
-                stack.push(c);
-            else if(c==')')
-                if (stack.empty())
-                    return false;
-                else if(stack.peek()=='(')
-                    stack.pop();
-                else
-                    return false;
-            else if(c== '}')
-                if(stack.empty())
-                    return false;
-                else if(stack.peek()=='{')
-                    stack.pop();
-                else
-                    return false;
-
-            else if(c== ']')
-                if(stack.empty())
-                    return false;
-                else if(stack.peek()=='[')
-                    stack.pop();
-                else
-                    return false;
-        }
-        return stack.empty();
-//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-
-    }
-
     /**
      * @param args the command line arguments
      */
@@ -54,7 +14,7 @@ public class MatchingBrackets {
         MatchingBrackets pc = new MatchingBrackets();
 
         Scanner in = new Scanner(System.in);
-        String expression = "";
+        String expression;
         do {
             System.out.println("Enter an expression with { [ ( ) ] }: ('q' to stop)");
             expression = in.nextLine();
@@ -63,5 +23,31 @@ public class MatchingBrackets {
                 System.out.println(expression + " has balanced brackets: " + b);
             }
         } while (!expression.equalsIgnoreCase("q"));
+    }
+
+    public boolean ckeckBrackets(String expression) {
+
+        Stack<Character> stack = new Stack<>();
+        char c;
+        for (int i = 0; i < expression.length(); i++) {
+            c = expression.charAt(i);
+            if (c == '(' || c == '{' || c == '[') {
+                stack.push(c);
+            } else if (c == ')' || c == '}' || c == ']') {
+                if (stack.empty()) {
+                    return false;
+                }
+                char open = stack.pop();
+
+                if (!(open == '(' && c == ')' || open == '{' && c == '}' || open == '[' && c == ']')) {
+                    return false;
+
+                }
+            }
+        }
+        return stack.isEmpty();
+
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
     }
 }
