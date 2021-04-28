@@ -1,3 +1,5 @@
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -65,15 +67,21 @@ public class MatchingBracketsV3 {
     public static void main(String[] args) {
         MatchingBracketsV3 pc = new MatchingBracketsV3();
 
-        Scanner in = new Scanner(System.in);
-        String expression = "";
-        do {
-            System.out.println("Enter an expression with { [ ( ) ] }: ('q' to stop)");
-            expression = in.nextLine();
-            if (!expression.equalsIgnoreCase("q")) {
-                boolean b = pc.ckeckBrackets(expression);
-                System.out.println(expression + " has balanced brackets: " + b);
+        Scanner inputStream = null;
+        File file = new File("C:\\Users\\iceha\\OneDrive\\Skrivebord\\2.Semester\\VOP\\MASTER\\exercises\\cehck.txt");
+
+        try {
+            inputStream = new Scanner(file);
+            while (inputStream.hasNextLine()){
+                String result = inputStream.nextLine();
+                boolean b = pc.ckeckBrackets(result);
+                System.out.println(result + " has balanced brackets: " + b);
             }
-        } while (!expression.equalsIgnoreCase("q"));
+
+        } catch (FileNotFoundException e){
+            e.printStackTrace();
+        } finally {
+            inputStream.close();
+        }
     }
 }

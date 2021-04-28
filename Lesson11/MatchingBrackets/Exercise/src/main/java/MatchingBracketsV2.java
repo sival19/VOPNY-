@@ -51,29 +51,30 @@ public class MatchingBracketsV2 {
      */
     public static void main(String[] args) throws IOException {
         MatchingBracketsV2 pc = new MatchingBracketsV2();
+
+        Scanner inputStream = null;
         File file = new File("C:\\Users\\iceha\\OneDrive\\Skrivebord\\2.Semester\\VOP\\MASTER\\exercises\\cehck.txt");
-        FileReader fr = null;
+
         try {
-            fr = new FileReader(file);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-        BufferedReader br = new BufferedReader(fr);
-        StringBuffer sb = new StringBuffer();
-        String line;
-        while ((line= br.readLine())!=null) {
-            sb.append(line);
-            sb.append("\n");
-        }
-
-        fr.close();
-
-        do {
-            System.out.println("Enter an expression with { [ ( ) ] }: ('q' to stop)");
-            if (!sb.toString().equalsIgnoreCase("q")) {
-                boolean b = pc.ckeckBrackets(sb.toString());
-                System.out.println(sb + " has balanced brackets: " + b);
+            inputStream = new Scanner(file);
+            while (inputStream.hasNextLine()){
+                String result = inputStream.nextLine();
+                boolean b = pc.ckeckBrackets(result);
+                System.out.println(result + " has balanced brackets: " + b);
             }
-        } while (!sb.toString().equalsIgnoreCase("q"));
+
+        } catch (FileNotFoundException e){
+            e.printStackTrace();
+        } finally {
+            inputStream.close();
+        }
+
+//        do {
+//            System.out.println("Enter an expression with { [ ( ) ] }: ('q' to stop)");
+//            if (!sb.toString().equalsIgnoreCase("q")) {
+//                boolean b = pc.ckeckBrackets(sb.toString());
+//                System.out.println(sb + " has balanced brackets: " + b);
+//            }
+//        } while (!sb.toString().equalsIgnoreCase("q"));
     }
 }
