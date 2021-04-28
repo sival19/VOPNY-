@@ -14,23 +14,23 @@ public class MatchingBracketsV2 {
         for(int i=0; i< expression.length(); i++){
             c= expression.charAt(i);
             if(c== '(')
-                stack.add(c);
+                stack.add(stack.size(),c);
             else if (c=='{')
-                stack.add(c);
+                stack.add(stack.size(),c);
             else if (c=='[')
-                stack.add(c);
+                stack.add(stack.size(),c);
             else if(c==')')
                 if (stack.isEmpty())
                     return false;
                 else if(stack.contains('('))
-                    stack.remove(i);
+                    stack.remove(stack.size()-1);
                 else
                     return false;
             else if(c== '}')
                 if(stack.isEmpty())
                     return false;
                 else if(stack.contains('{'))
-                    stack.remove(i);
+                    stack.remove(stack.size()-1);
                 else
                     return false;
 
@@ -38,7 +38,7 @@ public class MatchingBracketsV2 {
                 if(stack.isEmpty())
                     return false;
                 else if(stack.contains('['))
-                    stack.remove(i);
+                    stack.remove(stack.size()-1);
                 else
                     return false;
         }
@@ -50,8 +50,8 @@ public class MatchingBracketsV2 {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws IOException {
-        MatchingBrackets pc = new MatchingBrackets();
-        File file = new File("check.txt");
+        MatchingBracketsV2 pc = new MatchingBracketsV2();
+        File file = new File("C:\\Users\\iceha\\OneDrive\\Skrivebord\\2.Semester\\VOP\\MASTER\\exercises\\cehck.txt");
         FileReader fr = null;
         try {
             fr = new FileReader(file);
