@@ -32,7 +32,23 @@ public class ShapeFacade {
 
     // Facadens public metoder
     public String getShapeInfo(SHAPES shape, double... parametre) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        ShapeInterface currentShape = null;
+        switch (shape){
+            case CIRCLE:
+                currentShape = new Circle(parametre[0]);
+                break;
+            case ELLIPSE:
+                currentShape = new Ellipse(parametre[0], parametre[1]);
+                break;
+            case RECTANGLE:
+                currentShape = new Rectangle(parametre[0], parametre[1]);
+                break;
+            case SQUERE:
+                currentShape = new Square(parametre[0]);
+                break;
+            default: return "Unknown Shape";
+        }
+        return currentShape.toString();
     }
 
 }
